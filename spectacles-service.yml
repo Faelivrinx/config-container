@@ -1,2 +1,13 @@
+spring:
+  application:
+    name: spectacles-service
+  data:
+    mongodb:
+      uri: mongodb://dominik:dominikPassword2019@1manager1:27017,worker1:27017/admin
+      database: spectacles
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
 server:
-  port: 8080
+  port: ${PORT:8090}
