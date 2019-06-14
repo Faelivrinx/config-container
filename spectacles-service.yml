@@ -3,7 +3,7 @@ spring:
     name: spectacles-service
   data:
     mongodb:
-      uri: mongodb://dominik:dominikPassword2019@1manager1:27017,worker1:27017/admin
+      uri: mongodb://dominik:dominikPassword2019@manager1:27017,worker1:27017/admin
       database: spectacles
 eureka:
   client:
