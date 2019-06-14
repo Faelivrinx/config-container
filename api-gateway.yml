@@ -1,14 +1,21 @@
 spring:
   application:
     name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: spectacles-service
+          uri: lb://spectacles-service
+          predicates:
+            - Path=/spectacles/**
+          filters:
+            - RewritePath=/spectacles/(?<path>.*), /$\{path}
+      discovery:
+        locator:
+          enabled: true
+
 server:
   port: ${PORT:9000}
-zuul:
-  routes:
-    spectacles:
-      path: /spectacles/**
-      serviceId: spectacles-service
-
 eureka:
   client:
     service-url:
