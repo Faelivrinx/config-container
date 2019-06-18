@@ -10,6 +10,12 @@ spring:
             - Path=/spectacles/**
           filters:
             - RewritePath=/spectacles/(?<path>.*), /$\{path}
+      - id: booking-service
+        uri: lb://booking-service
+        predicates:
+          - Path=/booking/**
+        filters:
+          - RewritePath=/booking/(?<path>.*), /$\{path}
       discovery:
         locator:
           enabled: true
